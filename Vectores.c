@@ -4,9 +4,12 @@
 
 #define MAX_SIZE 100
 
+
+void toapanta(int arr[], int n);
+
 int main() {
-    int toapanta[MAX_SIZE];
-    int n, i;
+    int toapanta_arr[MAX_SIZE];
+    int n;
 
     printf("Ingrese la cantidad de numeros enteros a almacenar (maximo %d): ", MAX_SIZE);
     scanf("%d", &n);
@@ -16,23 +19,26 @@ int main() {
         return 1;
     }
 
-   
-    srand(time(NULL));
-
-    printf("\nLlenando el arreglo automaticamente con numeros aleatorios entre 0 y 100...\n");
-
     
-    for (i = 0; i < n; i++) {
-        toapanta[i] = rand() % 101; 
-    }
+    toapanta(toapanta_arr, n);
 
     
     printf("\nLos numeros almacenados son:\n");
-    for (i = 0; i < n; i++) {
-        printf("%d ", toapanta[i]);
+    for (int i = 0; i < n; i++) {
+        printf("%d ", toapanta_arr[i]);
     }
     printf("\n");
 
     return 0;
-
 }
+
+
+void toapanta(int arr[], int n) {
+    srand(time(NULL));
+    printf("\nLlenando el arreglo automaticamente con numeros aleatorios entre 0 y 100...\n");
+
+    for (int i = 0; i < n; i++) {
+        arr[i] = rand() % 101; 
+    }
+}
+
